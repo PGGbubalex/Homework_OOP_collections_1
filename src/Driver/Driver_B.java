@@ -3,7 +3,7 @@ package Driver;
 import Transport.Car;
 import Transport.PassengerCars;
 
-public class Driver_B<B extends Car> extends Driver {
+public class Driver_B<B extends PassengerCars> extends Driver {
 
     public Driver_B(String fullName, String driverLicense, int experience) {
         super(fullName, driverLicense, experience);

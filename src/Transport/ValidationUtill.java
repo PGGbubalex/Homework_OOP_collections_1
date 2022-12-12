@@ -10,7 +10,16 @@ public class ValidationUtill {
         }
     }
 
-    public static double validateNum(double value) {
+    public static double validatePower(double value) {
         return Math.max(value, 1.5);
+    }
+
+    public static int validateNum(int value) {
+        if (value < 0) {
+            value = 0;
+        } else {
+            value = value;
+        }
+        return value;
     }
 }

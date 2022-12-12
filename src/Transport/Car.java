@@ -1,17 +1,50 @@
 package Transport;
 
+import Driver.Driver;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Car {
     private final String brand;
     private final String model;
     private final double engineCapacity;
+    private final List<Driver> drivers = new ArrayList<>();
+    private final List<Mechanic> mechanics = new ArrayList<>();
+    private final List<Sponsor> sponsors = new ArrayList<>();
+
 
     public Car(String brand, String model, double engineCapacity) {
 
         this.brand = ValidationUtill.validateString(brand);
         this.model = ValidationUtill.validateString(model);
-        this.engineCapacity = ValidationUtill.validateNum(engineCapacity);
+        this.engineCapacity = ValidationUtill.validatePower(engineCapacity);
+    }
+
+    public void addDriver(Driver <?> driver) {
+        drivers.add(driver);
+    }
+
+    public void addMechanic(Mechanic <?>... mechanics) {
+        this.mechanics.addAll(Arrays.asList(mechanics));
+    }
+
+    public void addSponsor(Sponsor... sponsors) {
+        this.sponsors.addAll(Arrays.asList(sponsors));
+    }
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
     }
 
     public String getBrand() {
@@ -31,6 +64,8 @@ public abstract class Car {
     public abstract void finishMovement();
 
     public abstract boolean service();
+
+    public abstract void repair();
 
     @Override
     public boolean equals(Object o) {

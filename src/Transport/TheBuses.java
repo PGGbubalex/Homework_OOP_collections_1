@@ -34,6 +34,11 @@ public class TheBuses extends Car implements Competing{
     }
 
     @Override
+    public void repair() {
+        System.out.println("Машина починена");
+    }
+
+    @Override
     public void pitStop() {
         System.out.printf("%s %s заехал на пит-стоп\n", getBrand(), getModel());
         System.out.printf("%s %s выехал с пит-стопа\n", getBrand(), getModel());
